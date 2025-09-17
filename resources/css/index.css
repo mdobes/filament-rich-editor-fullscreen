@@ -1,0 +1,77 @@
+/* Fullscreen Rich Editor Styles */
+.fi-fo-rich-editor.fullscreen {
+    position: fixed;
+    border-radius: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+    background-color: var(--color-white);
+    border: none;
+    box-shadow: none;
+}
+
+/* Hide page scrollbar when fullscreen is active */
+body:has(.fi-fo-rich-editor.fullscreen) {
+    overflow: hidden;
+}
+
+/* Dark mode support */
+.dark .fi-fo-rich-editor.fullscreen {
+    background-color: var(--gray-900);
+}
+
+/* Fullscreen editor main container */
+.fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-main {
+    height: calc(100vh - 3.75rem);
+    overflow-y: auto;
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Fullscreen ProseMirror editor styles */
+.fi-fo-rich-editor.fullscreen .ProseMirror {
+    height: 100%;
+    overflow-y: auto;
+    max-height: none;
+    padding-right: 1rem;
+    box-sizing: border-box;
+    min-height: calc(100vh - 8rem);
+}
+
+/* Fullscreen toolbar adjustments */
+.fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: inherit;
+    border-bottom: 1px solid var(--gray-200);
+    padding: 0.75rem 2rem;
+}
+
+.dark .fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-toolbar {
+    border-bottom-color: var(--gray-700);
+}
+
+/* Fullscreen content area */
+.fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-content {
+    padding: 1rem 2rem 2rem;
+    flex: 1;
+}
+
+/* Focus styles for fullscreen mode */
+.fi-fo-rich-editor.fullscreen:focus-within {
+    outline: none;
+}
+
+/* Ensure proper scrolling in fullscreen */
+.fi-fo-rich-editor.fullscreen {
+    overflow: hidden;
+}
+
+.fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-main {
+    display: flex;
+    flex-direction: column;
+}
