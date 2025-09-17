@@ -51,15 +51,6 @@ The main CSS classes you can customize:
 - `.fi-fo-rich-editor.fullscreen .ProseMirror` - The editor content area
 - `.fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-toolbar` - The toolbar in fullscreen mode
 
-### Configuration
-
-You can publish the configuration file with:
-
-```bash
-php artisan vendor:publish --tag="rich-editor-fullscreen-config"
-```
-
-
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
