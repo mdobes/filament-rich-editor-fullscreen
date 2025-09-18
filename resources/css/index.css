@@ -26,9 +26,14 @@ body:has(.fi-fo-rich-editor.fullscreen) {
 .fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-main {
     height: calc(100vh - 3.75rem);
     overflow-y: auto;
-    max-width: 70rem;
+    max-width: 98vw;
     margin: 0 auto;
-    padding: 0 2rem;
+}
+
+@media (min-width: 600px) {
+    .fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-main {
+        max-width: 75vw;
+    }
 }
 
 /* Fullscreen ProseMirror editor styles */
