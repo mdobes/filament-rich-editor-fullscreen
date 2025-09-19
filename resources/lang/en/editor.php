@@ -2,6 +2,6 @@
 
 // translations for mdobes/RichEditorFullscreen
 return [
-    'fullscreen' => 'Celá obrazovka',
-    'exit_fullscreen' => 'Opustit celou obrazovku',
+    'fullscreen' => 'Fullscreen',
+    'exit_fullscreen' => 'Exit Fullscreen',
 ];
