@@ -3,6 +3,28 @@ import { Extension } from '@tiptap/core'
 export default Extension.create({
     name: 'fullscreen',
 
+    onCreate() {
+        if (this.storage.classObserver) return;
+
+        const editorWrapper = this.editor.options.element.closest('.fi-fo-rich-editor');
+        if (!editorWrapper) return;
+
+        const observer = new MutationObserver(() => {
+            if (this.storage.isFullscreen && !editorWrapper.classList.contains('fullscreen')) {
+                editorWrapper.classList.add('fullscreen');
+            }
+            editorWrapper.dispatchEvent(new CustomEvent('fi-fo-rich-editor:classchange', {
+                detail: {
+                    classList: editorWrapper.className,
+                    isFullscreen: editorWrapper.classList.contains('fullscreen'),
+                }
+            }));
+        });
+
+        observer.observe(editorWrapper, { attributes: true, attributeFilter: ['class'] });
+        this.storage.classObserver = observer;
+    },
+
     addCommands() {
         return {
             toggleFullscreen: () => ({ editor }) => {

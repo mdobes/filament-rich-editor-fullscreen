@@ -6,7 +6,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 50;
+    z-index: 30;
     background-color: var(--color-white);
     border: none;
     box-shadow: none;
@@ -25,21 +25,21 @@ body:has(.fi-fo-rich-editor.fullscreen) {
 /* Fullscreen editor main container */
 .fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-main {
     height: calc(100vh - 3.75rem);
-    overflow-y: auto;
+    /* overflow-y: auto; */
     max-width: 98vw;
     margin: 0 auto;
 }
 
 @media (min-width: 600px) {
     .fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-main {
-        max-width: 75vw;
+        max-width: 70vw;
     }
 }
 
 /* Fullscreen ProseMirror editor styles */
 .fi-fo-rich-editor.fullscreen .ProseMirror {
     height: 100%;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     max-height: none;
     padding-right: 1rem;
     box-sizing: border-box;
@@ -64,6 +64,7 @@ body:has(.fi-fo-rich-editor.fullscreen) {
 .fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-content {
     padding: 1rem 2rem 2rem;
     flex: 1;
+    overflow-y: auto;
 }
 
 /* Focus styles for fullscreen mode */
@@ -79,4 +80,9 @@ body:has(.fi-fo-rich-editor.fullscreen) {
 .fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-main {
     display: flex;
     flex-direction: column;
+}
+
+.fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-panels {
+    position: absolute;
+    right: 0px;
 }
