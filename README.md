@@ -83,6 +83,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [Michal Dobeš](https://github.com/mdobes)
+- [AndroSamp-it](https://github.com/AndroSamp-it)
 - [All Contributors](../../contributors)
 
 ## License
