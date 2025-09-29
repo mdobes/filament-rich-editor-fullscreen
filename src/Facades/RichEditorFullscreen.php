@@ -5,12 +5,12 @@ namespace mdobes\RichEditorFullscreen\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \mdobes\RichEditorFullscreen\FullscreeenRichContentPlugin
+ * @see \mdobes\RichEditorFullscreen\FullscreenRichContentPlugin
  */
 class RichEditorFullscreen extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \mdobes\RichEditorFullscreen\FullscreeenRichContentPlugin::class;
+        return \mdobes\RichEditorFullscreen\FullscreenRichContentPlugin::class;
     }
 }
