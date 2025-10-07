@@ -39,6 +39,11 @@ class FullscreenRichContentPlugin implements RichContentPlugin
             RichEditorTool::make('fullscreen')
                 ->icon('heroicon-o-arrows-pointing-out')
                 ->label(__('rich-editor-fullscreen::editor.fullscreen'))
+                ->extraAttributes([
+                    'data-tool' => 'fullscreen',
+                    'data-label-fullscreen' => __('rich-editor-fullscreen::editor.fullscreen'),
+                    'data-label-exit-fullscreen' => __('rich-editor-fullscreen::editor.exit_fullscreen'),
+                ])
                 ->jsHandler(<<<'JS'
                     $getEditor()?.commands.toggleFullscreen()
                 JS),
