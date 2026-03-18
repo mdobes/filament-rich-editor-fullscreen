@@ -3,11 +3,9 @@
 namespace mdobes\RichEditorFullscreen;
 
 use Filament\Forms\Components\RichEditor;
-use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
-use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
 use mdobes\RichEditorFullscreen\Testing\TestsRichEditorFullscreen;
@@ -29,7 +27,6 @@ class RichEditorFullscreenServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package->name(static::$name)
-            ->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->askToStarRepoOnGitHub('mdobes/filament-rich-editor-fullscreen');
@@ -39,10 +36,6 @@ class RichEditorFullscreenServiceProvider extends PackageServiceProvider
 
         if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
             $package->hasConfigFile();
-        }
-
-        if (file_exists($package->basePath('/../database/migrations'))) {
-            $package->hasMigrations($this->getMigrations());
         }
 
         if (file_exists($package->basePath('/../resources/lang'))) {
@@ -69,14 +62,6 @@ class RichEditorFullscreenServiceProvider extends PackageServiceProvider
             __DIR__ . '/../resources/dist' => public_path('js/filament/rich-editor-fullscreen'),
         ], 'rich-editor-fullscreen-assets');
 
-        FilamentAsset::registerScriptData(
-            $this->getScriptData(),
-            $this->getAssetPackageName()
-        );
-
-        // Icon Registration
-        FilamentIcon::register($this->getIcons());
-
         // Register the plugin globally with RichEditor
         RichEditor::configureUsing(function (RichEditor $richEditor) {
             $richEditor->plugins([
@@ -100,45 +85,5 @@ class RichEditorFullscreenServiceProvider extends PackageServiceProvider
     protected function getAssetPackageName(): ?string
     {
         return 'mdobes/filament-rich-editor-fullscreen';
-    }
-
-    /**
-     * @return array<class-string>
-     */
-    protected function getCommands(): array
-    {
-        return [];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getIcons(): array
-    {
-        return [];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getRoutes(): array
-    {
-        return [];
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    protected function getScriptData(): array
-    {
-        return [];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getMigrations(): array
-    {
-        return [];
     }
 }
