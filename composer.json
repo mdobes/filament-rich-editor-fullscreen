@@ -66,9 +66,7 @@
             "providers": [
                 "mdobes\\RichEditorFullscreen\\RichEditorFullscreenServiceProvider"
             ],
-            "aliases": {
-                "RichEditorFullscreen": "mdobes\\RichEditorFullscreen\\Facades\\RichEditorFullscreen"
-            }
+            "aliases": {}
         }
     },
     "minimum-stability": "dev",
