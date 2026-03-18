@@ -63,10 +63,7 @@ class RichEditorFullscreenServiceProvider extends PackageServiceProvider
     {
         // Asset Registration
         FilamentAsset::register([
-            // Main plugin assets
             Css::make('rich-editor-fullscreen-styles', __DIR__ . '/../resources/dist/rich-editor-fullscreen.css'),
-
-            // TipTap extension for fullscreen functionality - register without package name
             Js::make('rich-content-plugins/fullscreen', __DIR__ . '/../resources/dist/rich-content-plugins/fullscreen.js')->loadedOnRequest(),
         ]);
 
@@ -106,20 +103,6 @@ class RichEditorFullscreenServiceProvider extends PackageServiceProvider
     protected function getAssetPackageName(): ?string
     {
         return 'mdobes/filament-rich-editor-fullscreen';
-    }
-
-    /**
-     * @return array<Asset>
-     */
-    protected function getAssets(): array
-    {
-        return [
-            // Main plugin assets
-            Css::make('rich-editor-fullscreen-styles', __DIR__ . '/../resources/dist/rich-editor-fullscreen.css'),
-
-            // TipTap extension for fullscreen functionality
-            Js::make('rich-content-plugins/fullscreen', __DIR__ . '/../resources/dist/rich-content-plugins/fullscreen.js')->loadedOnRequest(),
-        ];
     }
 
     /**
