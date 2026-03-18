@@ -48,7 +48,7 @@ class FullscreenRichContentPlugin implements RichContentPlugin
                     </svg>
                 '))
                 ->activeJsExpression('$root.classList.contains(\'fullscreen\')')
-                ->jsHandler('window.toggleRichEditorFullscreen($root)')
+                ->jsHandler('$dispatch(\'toggle-fullscreen\')')
                 ->extraAttributes([
                     'class' => 'fullscreen-toggle',
                     'data-enter-label' => __('rich-editor-fullscreen::editor.enter_fullscreen'),

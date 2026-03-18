@@ -4,17 +4,13 @@ export default Extension.create({
     name: 'fullscreen',
 
     onCreate() {
-        if (this.storage.classObserver) return;
-
         const editorWrapper = this.editor.options.element.closest('.fi-fo-rich-editor');
         if (!editorWrapper) return;
 
-        const editor = this.editor;
-
-        // Register global toggle function that uses TipTap command
-        window.toggleRichEditorFullscreen = function ($root) {
-            editor.commands.toggleFullscreen();
-        };
+        // Listen for toggle-fullscreen event dispatched by the toolbar button via Alpine $dispatch
+        editorWrapper.addEventListener('toggle-fullscreen', () => {
+            this.editor.commands.toggleFullscreen();
+        });
 
         const observer = new MutationObserver(() => {
             editorWrapper.dispatchEvent(new CustomEvent('fi-fo-rich-editor:classchange', {
@@ -26,7 +22,6 @@ export default Extension.create({
         });
 
         observer.observe(editorWrapper, { attributes: true, attributeFilter: ['class'] });
-        this.storage.classObserver = observer;
     },
 
     addCommands() {
@@ -36,13 +31,12 @@ export default Extension.create({
                 if (editorWrapper) {
                     editorWrapper.classList.toggle('fullscreen');
 
-                    // Update storage state
-                    this.storage.isFullscreen = editorWrapper.classList.contains('fullscreen');
+                    const isFullscreen = editorWrapper.classList.contains('fullscreen');
 
                     // Update tooltip on the fullscreen button
                     const btn = editorWrapper.querySelector('.fullscreen-toggle');
                     if (btn) {
-                        const label = this.storage.isFullscreen
+                        const label = isFullscreen
                             ? btn.dataset.exitLabel
                             : btn.dataset.enterLabel;
 
@@ -61,18 +55,14 @@ export default Extension.create({
         };
     },
 
-    addStorage() {
-        return {
-            isFullscreen: false,
-        };
-    },
-
     addKeyboardShortcuts() {
         return {
             'Escape': () => {
-                if (this.storage.isFullscreen) {
+                const editorWrapper = this.editor.options.element.closest('.fi-fo-rich-editor');
+                if (editorWrapper?.classList.contains('fullscreen')) {
                     return this.editor.commands.toggleFullscreen();
                 }
+                return false;
             },
             'Mod-Shift-f': () => this.editor.commands.toggleFullscreen(),
         };
