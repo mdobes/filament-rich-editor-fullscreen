@@ -14,9 +14,10 @@ export default Extension.create({
         if (!editorWrapper) return;
 
         // Listen for toggle-fullscreen event dispatched by the toolbar button via Alpine $dispatch
-        editorWrapper.addEventListener('toggle-fullscreen', () => {
+        const toggleHandler = () => {
             this.editor.commands.toggleFullscreen();
-        });
+        };
+        editorWrapper.addEventListener('toggle-fullscreen', toggleHandler);
 
         const observer = new MutationObserver(() => {
             // Re-apply fullscreen class if Livewire re-render removed it
@@ -33,6 +34,21 @@ export default Extension.create({
         });
 
         observer.observe(editorWrapper, { attributes: true, attributeFilter: ['class'] });
+
+        // Store references for cleanup
+        this.storage._observer = observer;
+        this.storage._editorWrapper = editorWrapper;
+        this.storage._toggleHandler = toggleHandler;
+    },
+
+    onDestroy() {
+        if (this.storage._observer) {
+            this.storage._observer.disconnect();
+        }
+
+        if (this.storage._editorWrapper && this.storage._toggleHandler) {
+            this.storage._editorWrapper.removeEventListener('toggle-fullscreen', this.storage._toggleHandler);
+        }
     },
 
     addCommands() {
