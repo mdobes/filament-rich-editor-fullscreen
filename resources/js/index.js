@@ -35,6 +35,23 @@ export default Extension.create({
 
         observer.observe(editorWrapper, { attributes: true, attributeFilter: ['class'] });
 
+        // Set initial label from data attributes based on current state
+        const btn = editorWrapper.querySelector('.fullscreen-toggle');
+        if (btn) {
+            const isFullscreen = editorWrapper.classList.contains('fullscreen');
+            const label = isFullscreen
+                ? btn.dataset.exitLabel
+                : btn.dataset.enterLabel;
+
+            if (label) {
+                btn.setAttribute('aria-label', label);
+
+                if (btn._tippy) {
+                    btn._tippy.setContent(label);
+                }
+            }
+        }
+
         // Store references for cleanup
         this.storage._observer = observer;
         this.storage._editorWrapper = editorWrapper;
