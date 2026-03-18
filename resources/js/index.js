@@ -3,6 +3,12 @@ import { Extension } from '@tiptap/core'
 export default Extension.create({
     name: 'fullscreen',
 
+    addStorage() {
+        return {
+            isFullscreen: false,
+        };
+    },
+
     onCreate() {
         const editorWrapper = this.editor.options.element.closest('.fi-fo-rich-editor');
         if (!editorWrapper) return;
@@ -13,6 +19,11 @@ export default Extension.create({
         });
 
         const observer = new MutationObserver(() => {
+            // Re-apply fullscreen class if Livewire re-render removed it
+            if (this.storage.isFullscreen && !editorWrapper.classList.contains('fullscreen')) {
+                editorWrapper.classList.add('fullscreen');
+            }
+
             editorWrapper.dispatchEvent(new CustomEvent('fi-fo-rich-editor:classchange', {
                 detail: {
                     classList: editorWrapper.className,
@@ -31,7 +42,10 @@ export default Extension.create({
                 if (editorWrapper) {
                     editorWrapper.classList.toggle('fullscreen');
 
-                    const isFullscreen = editorWrapper.classList.contains('fullscreen');
+                    // Persist fullscreen state so it survives Livewire re-renders
+                    this.storage.isFullscreen = editorWrapper.classList.contains('fullscreen');
+
+                    const isFullscreen = this.storage.isFullscreen;
 
                     // Update tooltip on the fullscreen button
                     const btn = editorWrapper.querySelector('.fullscreen-toggle');
