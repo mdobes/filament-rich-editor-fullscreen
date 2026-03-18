@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mdobes/rich-editor-fullscreen.svg?style=flat-square)](https://packagist.org/packages/mdobes/rich-editor-fullscreen)
 [![Total Downloads](https://img.shields.io/packagist/dt/mdobes/rich-editor-fullscreen.svg?style=flat-square)](https://packagist.org/packages/mdobes/rich-editor-fullscreen)
 
-A Filament v4 plugin that adds fullscreen functionality to the Rich Editor component. This plugin allows users to expand the rich editor to fullscreen mode for a better writing experience.
+A Filament v4 & v5 plugin that adds fullscreen functionality to the Rich Editor component. This plugin allows users to expand the rich editor to fullscreen mode for a better writing experience.
 
 <img class="filament-hidden" alt="Rich Editor Fullscreen plugin cover" src="img/cover.jpg">
 
