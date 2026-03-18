@@ -99,14 +99,14 @@ body:has(.fi-fo-rich-editor.fullscreen) {
 
 .fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-panels {
     position: absolute;
-    right: 0
+    right: 0;
 }
 
 @media (max-width: 671px) {
     .fi-fo-rich-editor.fullscreen .fi-fo-rich-editor-panels {
         position: relative;
         width: 100%;
-        order: -1
+        order: -1;
     }
 }
 
