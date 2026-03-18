@@ -9,10 +9,14 @@ export default Extension.create({
         const editorWrapper = this.editor.options.element.closest('.fi-fo-rich-editor');
         if (!editorWrapper) return;
 
+        const editor = this.editor;
+
+        // Register global toggle function that uses TipTap command
+        window.toggleRichEditorFullscreen = function ($root) {
+            editor.commands.toggleFullscreen();
+        };
+
         const observer = new MutationObserver(() => {
-            if (this.storage.isFullscreen && !editorWrapper.classList.contains('fullscreen')) {
-                editorWrapper.classList.add('fullscreen');
-            }
             editorWrapper.dispatchEvent(new CustomEvent('fi-fo-rich-editor:classchange', {
                 detail: {
                     classList: editorWrapper.className,
@@ -34,6 +38,20 @@ export default Extension.create({
 
                     // Update storage state
                     this.storage.isFullscreen = editorWrapper.classList.contains('fullscreen');
+
+                    // Update tooltip on the fullscreen button
+                    const btn = editorWrapper.querySelector('.fullscreen-toggle');
+                    if (btn) {
+                        const label = this.storage.isFullscreen
+                            ? btn.dataset.exitLabel
+                            : btn.dataset.enterLabel;
+
+                        btn.setAttribute('aria-label', label);
+
+                        if (btn._tippy) {
+                            btn._tippy.setContent(label);
+                        }
+                    }
 
                     // Focus the editor after toggling
                     editor.view.focus();

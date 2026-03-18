@@ -1,3 +1,16 @@
+/* Fullscreen toggle button icon swap */
+.fullscreen-toggle .exit-fullscreen {
+    display: none;
+}
+
+.fi-fo-rich-editor.fullscreen .fullscreen-toggle .enter-fullscreen {
+    display: none;
+}
+
+.fi-fo-rich-editor.fullscreen .fullscreen-toggle .exit-fullscreen {
+    display: block;
+}
+
 /* Fullscreen Rich Editor Styles */
 .fi-fo-rich-editor.fullscreen {
     position: fixed;
