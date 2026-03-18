@@ -32,10 +32,7 @@ class RichEditorFullscreenServiceProvider extends PackageServiceProvider
             ->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
-                    ->publishConfigFile()
-                    ->publishMigrations()
-                    ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub('mdobes/rich-editor-fullscreen');
+                    ->askToStarRepoOnGitHub('mdobes/filament-rich-editor-fullscreen');
             });
 
         $configFileName = $package->shortName();
