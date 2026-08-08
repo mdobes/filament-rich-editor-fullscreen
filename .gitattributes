@@ -26,7 +26,6 @@
 /pint.json              export-ignore
 /psalm.xml              export-ignore
 /psalm.xml.dist         export-ignore
-/tailwind.config.js     export-ignore
 /testbench.yaml         export-ignore
 /vitest.config.js       export-ignore
 /UPGRADING.md           export-ignore
