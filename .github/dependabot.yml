@@ -18,3 +18,13 @@ updates:
       default-days: 5
     commit-message:
       prefix: chore
+    groups:
+      tiptap:
+        patterns:
+          - '@tiptap/*'
+    ignore:
+      # @tiptap/core is bundled into the shipped dist. Its version has to track
+      # what Filament's rich editor ships, not the latest release on npm.
+      - dependency-name: '@tiptap/*'
+        update-types:
+          - version-update:semver-major
