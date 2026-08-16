@@ -20,7 +20,7 @@
         "@tiptap/extension-paragraph": "^2.1.0",
         "@tiptap/extension-text": "^2.1.0",
         "@tiptap/pm": "^2.27.2",
-        "esbuild": "^0.28.1",
+        "esbuild": "^0.28.2",
         "jsdom": "^30.0.1",
         "npm-run-all": "^4.1.5",
         "postcss": "^8.5.25",
