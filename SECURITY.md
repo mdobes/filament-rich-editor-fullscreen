@@ -16,7 +16,7 @@ discussions, or pull requests.
 
 Instead, report them privately using one of the following channels:
 
-- [GitHub Security Advisories](https://github.com/mdobes/rich-editor-fullscreen/security/advisories/new) (preferred)
+- [GitHub Security Advisories](https://github.com/mdobes/filament-rich-editor-fullscreen/security/advisories/new) (preferred)
 - Email: hello@oxz.cz
 
 Please include as much of the following as you can:
