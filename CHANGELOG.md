@@ -2,6 +2,16 @@
 
 All notable changes to `rich-editor-fullscreen` will be documented in this file.
 
+## 1.3.2 - 2026-09-27
+
+### Fixed
+
+- Bundled tiptap upgraded to v3 to match Filament 4.x/5.x, resolving GHSA-cp6q-959q-f8rh (`mergeAttributes()` prototype manipulation)
+
+### Changed
+
+- Dependency updates: tiptap 3.31.3, postcss 8.5.28, vitest 5.0.0
+
 ## 1.3.1 - 2026-08-22
 
 ### Fixed
