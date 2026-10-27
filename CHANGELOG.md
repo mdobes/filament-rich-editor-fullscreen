@@ -2,6 +2,14 @@
 
 All notable changes to `rich-editor-fullscreen` will be documented in this file.
 
+## 1.3.3 - 2026-10-27
+
+### Changed
+
+- Bundled tiptap updated to 3.31.4
+- Dependency updates: vitest 5.0.5, jsdom 30.1.2, prettier 3.9.9, axios 1.21.0, undici 8.12.3, follow-redirects 1.16.1, brace-expansion 1.1.21, shell-quote 1.12.0, source-map-js 1.2.2
+- GitHub Actions updates: actions/setup-node 7.1.0, shivammathur/setup-php 2.40.0
+
 ## 1.3.2 - 2026-09-27
 
 ### Fixed
