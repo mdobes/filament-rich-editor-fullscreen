@@ -13,7 +13,7 @@
     },
     "devDependencies": {
         "@awcodes/filament-plugin-purge": "^1.1.1",
-        "@tailwindcss/cli": "^4.3.3",
+        "@tailwindcss/cli": "^4.3.4",
         "@tailwindcss/postcss": "^4.3.3",
         "@tiptap/core": "^3.31.4",
         "@tiptap/extension-document": "^3.31.4",
